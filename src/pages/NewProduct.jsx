@@ -5,7 +5,14 @@ import axios from "axios"
 
 const NewProduct = () => {
  
+const [formData,setFormData]=useState({
+name:"",
+price:0,
+amount:0,
+image:"",
+dampingRate:0.8
 
+})
 
   return (
     <div className="container">
@@ -24,8 +31,9 @@ const NewProduct = () => {
               type="text"
               className="form-control"
               name="name"
-              value={""}
+              value={formData.name}
               required
+              onChange={()=>setFormData({...formData, name:e.target.value})}
             />
           </div>
           <div className="mb-3">
@@ -36,8 +44,9 @@ const NewProduct = () => {
               type="number"
               className="form-control"
               name="price"
-              value={""}
+              value={formData.price}
               required
+              onChange={()=>setFormData({...formData, price:e.target.value})}
             />
           </div>
           <div className="mb-3">
@@ -48,8 +57,9 @@ const NewProduct = () => {
               type="number"
               className="form-control"
               name="amount"
-              value={""}
+              value={formData.amount}
               required
+              onChange={()=>setFormData({...formData, amount:e.target.value})}
             />
           </div>
           <label htmlFor="add-image" className="form-label">
@@ -63,9 +73,10 @@ const NewProduct = () => {
               type="url"
               className="form-control"
               name="image"
-              value={""}
+              value={formData.image}
               aria-describedby="basic-addon3"
               required
+              onChange={()=>setFormData({...formData, image:e.target.value})}
             />
           </div>
           <div className="text-center">
